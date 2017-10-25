@@ -1,5 +1,7 @@
+# Git branch command test
 # GIT PROJECT 4 - PARTNER PROJECT 
 # Person A: koos, Person B: dongxuli 
+
 # OAuth1 Code to access data from the Twitter API...
 import requests_oauthlib
 import webbrowser
