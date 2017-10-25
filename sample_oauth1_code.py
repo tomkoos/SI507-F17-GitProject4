@@ -1,9 +1,12 @@
 # Git branch command test
+# GIT PROJECT 4 - PARTNER PROJECT 
+# Person A: koos, Person B: dongxuli 
+
 # OAuth1 Code to access data from the Twitter API...
 import requests_oauthlib
 import webbrowser
 import json
-
+from datetime import datetime
 
 # Get these from the Twitter website, by going to
 # https://apps.twitter.com/ and creating an "app"
@@ -215,9 +218,18 @@ print(type(ids))
 
 # a super simple version of "caching"
 # save the data we got back and collected in a file to check it out
-fr = open("paging_nested.txt","w")
-fr.write(json.dumps(collected_tweets))
-fr.close()
+# fr = open("paging_nested.txt","w")
+# fr.write(json.dumps(collected_tweets))
+# fr.close()
+
+
+# better caching system: edited by koos
+DATETIME_FORMAT = "%Y-%m-%d_%H-%M-%S"
+now = datetime.now()
+cache_timestamp = datetime.strftime(now, DATETIME_FORMAT)
+with open("paging_nested_" + cache_timestamp + ".txt", "w") as fr:
+	fr.write(json.dumps(collected_tweets))
+
 
 # Now, can investigate using this data that you got.
 # If you're testing with the data in the file only, you may want to comment out all the code above this for a while so you don't inadvertently make a lot of requests to Twitter and then run out of request privileges for the day!
